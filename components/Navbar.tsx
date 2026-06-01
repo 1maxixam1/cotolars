@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Mail, Building2 } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
+import LogoCotolar from "@/components/LogoCotolar";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -38,17 +39,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#0f3460] shadow-md group-hover:bg-[#1a5276] transition-colors">
-              <Building2 className="text-white w-5 h-5" />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-[#0f3460] font-extrabold text-xl tracking-tight">
-                COTOLAR
-              </span>
-              <span className="text-[#2471a3] text-[10px] font-medium tracking-widest uppercase hidden sm:block">
-                Terapia Ocupacional · La Rioja
-              </span>
-            </div>
+            <LogoCotolar className="w-40 sm:w-48 h-auto hover:opacity-90 transition-opacity" />
           </Link>
 
           {/* Links escritorio */}

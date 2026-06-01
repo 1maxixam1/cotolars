@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Building2, MapPin, Phone, Mail, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
+import LogoCotolar from "@/components/LogoCotolar";
 
 const quickLinks = [
   { href: "/institucional", label: "Quiénes Somos" },
@@ -20,15 +21,7 @@ export default function Footer() {
           {/* Columna 1: Logo y descripción */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 border border-white/20">
-                <Building2 className="text-white w-5 h-5" />
-              </div>
-              <div>
-                <p className="font-extrabold text-xl tracking-tight">COTOLAR</p>
-                <p className="text-blue-300 text-[10px] tracking-widest uppercase">
-                  Terapia Ocupacional · La Rioja
-                </p>
-              </div>
+              <LogoCotolar className="w-40 sm:w-48 h-auto" />
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
               Organismo que regula, habilita y fiscaliza el ejercicio profesional de la Terapia Ocupacional en la provincia de La Rioja.
