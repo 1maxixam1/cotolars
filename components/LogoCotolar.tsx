@@ -4,7 +4,7 @@ export default function LogoCotolar({ className = "w-64 h-auto" }: { className?:
 
   return (
     <svg
-      viewBox="0 0 450 160"
+      viewBox="0 0 550 160"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
