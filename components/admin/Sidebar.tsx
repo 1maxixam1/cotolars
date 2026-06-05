@@ -26,7 +26,10 @@ export default function Sidebar() {
       <div className="flex-1 overflow-y-auto py-6 px-4">
         <nav className="flex flex-col gap-2">
           {navigation.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive =
+              item.href === "/admin"
+                ? pathname === "/admin"
+                : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.name}

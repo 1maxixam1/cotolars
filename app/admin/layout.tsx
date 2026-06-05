@@ -1,18 +1,6 @@
-import Sidebar from "@/components/admin/Sidebar";
-import Header from "@/components/admin/Header";
-
+// Root admin layout: transparent passthrough.
+// Login page lives here (no sidebar/header).
+// Authenticated pages live in (dashboard)/ which has its own layout.
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex h-screen bg-slate-50 font-sans">
-      <Sidebar />
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <Header />
-        <main className="flex-1 overflow-y-auto p-8">
-          <div className="mx-auto max-w-6xl">
-            {children}
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+  return <>{children}</>;
 }
