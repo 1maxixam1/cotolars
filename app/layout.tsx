@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+import SiteShell from "@/components/SiteShell";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,11 +38,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.className} antialiased bg-gray-50 text-gray-800`}>
-        <Navbar />
-        <main className="pt-[calc(2.5rem+4rem)]">{children}</main>
-        <Footer />
-        <ChatWidget />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
 }
+
