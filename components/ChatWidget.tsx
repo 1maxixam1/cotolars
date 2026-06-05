@@ -6,7 +6,7 @@ import { MessageSquare, X, Send, Bot, User, Loader2 } from 'lucide-react';
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat() as any;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll al último mensaje
@@ -86,7 +86,7 @@ export default function ChatWidget() {
             </div>
           )}
 
-          {messages.map((m) => (
+          {messages.map((m: any) => (
             <div
               key={m.id}
               className={`flex flex-col max-w-[85%] ${
@@ -109,7 +109,7 @@ export default function ChatWidget() {
                 }`}
               >
                 {/* Herramientas (Razonamiento de IA) */}
-                {m.toolInvocations?.map(tool => (
+                {m.toolInvocations?.map((tool: any) => (
                   <div key={tool.toolCallId} className="mb-2 text-xs text-blue-600 bg-blue-50 p-2 rounded flex items-center gap-2 border border-blue-100">
                     <Loader2 className="w-3 h-3 animate-spin" />
                     <i>Consultando base de datos ({tool.toolName})...</i>

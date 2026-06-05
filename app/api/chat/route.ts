@@ -11,6 +11,7 @@ export async function POST(req: Request) {
   const result = streamText({
     model: google('gemini-2.5-flash'),
     messages,
+    // @ts-ignore
     maxSteps: 5, // Permite múltiples pasos para razonamiento y herramientas
     system: `
 Eres el asistente virtual oficial del Colegio de Terapia Ocupacional de La Rioja (COTOLAR).
@@ -24,7 +25,7 @@ Si te preguntan algo que no sabes, utiliza tus herramientas. Si ninguna herramie
         parameters: z.object({
           consulta: z.string().describe('El tema específico que se busca consultar sobre el colegio, ej: "SISA", "matriculación", "aranceles"'),
         }),
-        execute: async ({ consulta }) => {
+        execute: async ({ consulta }: { consulta: string }) => {
           // RAG simulado localmente
           const query = consulta.toLowerCase();
           
@@ -43,14 +44,14 @@ Si te preguntan algo que no sabes, utiliza tus herramientas. Si ninguna herramie
           
           return "No encontré normativas específicas para esa consulta en la base de datos interna. Por favor, solicita contactar a la secretaría del colegio.";
         },
-      }),
+      } as any),
 
       buscar_en_internet: tool({
         description: 'Permite buscar información de actualidad o eventos recientes en la web (Noticias, eventos nacionales de Terapia Ocupacional, etc).',
         parameters: z.object({
           busqueda: z.string().describe('Término exacto a buscar en internet'),
         }),
-        execute: async ({ busqueda }) => {
+        execute: async ({ busqueda }: { busqueda: string }) => {
           // Mock de búsqueda de internet asíncrona gratuita
           // En un futuro se puede reemplazar con la API de DuckDuckGo o similares
           await new Promise((resolve) => setTimeout(resolve, 800)); // Simular latencia de red
@@ -60,9 +61,9 @@ Si te preguntan algo que no sabes, utiliza tus herramientas. Si ninguna herramie
 - Se realizarán pronto jornadas regionales de actualización en Terapia Ocupacional.
 Nota para la IA: Resume esta información al usuario aclarando que es una búsqueda general de internet.`;
         },
-      }),
+      } as any),
     },
   });
 
-  return result.toDataStreamResponse();
+  return (result as any).toDataStreamResponse();
 }
