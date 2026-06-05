@@ -146,7 +146,7 @@ export default function ChatWidget() {
             />
             <button
               type="submit"
-              disabled={isLoading || !input.trim()}
+              disabled={isLoading || !input?.trim()}
               className="absolute right-1 top-1 bottom-1 aspect-square bg-[#0f3460] hover:bg-[#1a5276] text-white rounded-full flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="w-4 h-4 ml-0.5" />
