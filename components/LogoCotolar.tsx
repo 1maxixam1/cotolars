@@ -12,15 +12,15 @@ export default function LogoCotolar({ className = "w-64 h-auto" }: { className?:
       <defs>
         {/* Gradiente principal vibrante para el mapa */}
         <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1abc9c" />   {/* Esmeralda / Turquesa */}
-          <stop offset="50%" stop-color="#2471a3" />  {/* Azul claro */}
-          <stop offset="100%" stop-color="#0f3460" /> {/* Azul profundo */}
+          <stop offset="0%" stopColor="#1abc9c" />   {/* Esmeralda / Turquesa */}
+          <stop offset="50%" stopColor="#2471a3" />  {/* Azul claro */}
+          <stop offset="100%" stopColor="#0f3460" /> {/* Azul profundo */}
         </linearGradient>
 
         {/* Gradiente para el texto */}
         <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#0f3460" />
-          <stop offset="100%" stop-color="#1a5276" />
+          <stop offset="0%" stopColor="#0f3460" />
+          <stop offset="100%" stopColor="#1a5276" />
         </linearGradient>
 
         {/* Sombra suave para dar efecto flotante (glassmorphism) */}
